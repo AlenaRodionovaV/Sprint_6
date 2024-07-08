@@ -3,6 +3,7 @@ from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 import allure
+import time
 
 
 class MainPage(BasePage):
@@ -42,7 +43,9 @@ class MainPage(BasePage):
     @allure.step('Скроллим страницу до раздела "Вопросы о важном" и кликаем по вопросу')
     def scroll_and_check_questions_answers_section(self, data):
         self.scroll_to_element(MainPageLocators.questions_answers_section)
+        time.sleep(1)
         self.wait_visibility_of_element(MainPageLocators.questions[data])
+        time.sleep(1)
         self.click_on_element(MainPageLocators.questions[data])
         self.check_displaying_of_element(MainPageLocators.answers[data])
 
