@@ -1,12 +1,6 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-
-from locators.base_page_locators import BasePageLocators
 from pages.main_page import MainPage
 from conftest import driver
 import allure
-import time
 
 
 class TestLogosClick:
@@ -26,6 +20,5 @@ class TestLogosClick:
         main_page = MainPage(driver)
         main_page.wait_visibility_of_yandex_logo()
         main_page.click_on_yandex_logo()
-        time.sleep(1)
         main_page.switch_to_next_tab()
         assert main_page.check_visibility_of_logo() == 'Дзен'

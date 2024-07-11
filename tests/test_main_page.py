@@ -1,4 +1,3 @@
-import time
 import allure
 import pytest
 from conftest import driver
@@ -15,8 +14,5 @@ class TestMainPage:
     def test_scroll_and_check_questions_answers_section(self, driver, question, answer):
         main_page = MainPage(driver)
         main_page.scroll_and_check_questions_answers_section(question)
-        time.sleep(1)
         main_page.wait_visibility_of_answer(question)
-        time.sleep(1)
         assert main_page.get_text_of_answer(question) == answer
-        time.sleep(1)
